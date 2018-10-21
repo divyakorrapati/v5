@@ -1,9 +1,9 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,re_path
 from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.auth import views
+from django.contrib.auth.views import LoginView, LogoutView
 
 
 urlpatterns = [
@@ -12,8 +12,10 @@ urlpatterns = [
     path('cart/', include('cart.urls', namespace='cart')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('accounts/', include('django.contrib.auth.urls')),
-    url(r'^login/$', views.login, name='login'),
-    url(r'^logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
+    #url(r'^login/$', views.login, name='login'),
+    #url(r'^logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
+    #re_path(r'^accounts/login/$', LoginView.as_view(template_name='regiatration/login.html'), name="login"),
+    #re_path(r'^accounts/logout/$', LogoutView.as_view(), LogoutView.next_page, name="logout"),
 ]
 
 if settings.DEBUG:

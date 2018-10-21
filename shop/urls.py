@@ -8,27 +8,21 @@ from . import views
 app_name = 'shop'
 
 urlpatterns = [
-    url(r'^logout/$', logout, name='logout'),
-    #path('', views.home, name='home'),
-    #url(r'^home/$', views.home, name='home'),
-
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    url(r'^register/$', views.register, name='register'),
+    #url(r'^register_done/$', views., name='register'),
     # change password urls
     #url(r'^password-change/$', pwd_change, name='password_change'),
     url(r'^password-change/done/$', pwd_change_done, name='password_change_done'),
     url(r'^password-change/$', pwd_change, {'post_change_redirect': '/password-change/done/'}, name='password_change'),
-
-
 # restore password urls
     url(r'^password-reset/complete/$', reset_complete, name='password_reset_complete'),
     url(r'^password-reset/confirm/(?P<uidb64>[-\w]+)/(?P<token>[-\w]+)/$', reset_confirm, {'post_reset_redirect': '/password-reset/complete/'}, name='password_reset_confirm'),
     url(r'^password-reset/done/$', reset_done, name='password_reset_done'),
     url(r'^password-reset/$', reset, {'post_reset_redirect': '/password-reset/done/', 'email_template_name': 'registration/password_reset_email.html'}, name='password_reset'),
-
-
-    url(r'^register/$', views.register, name='register'),
     path('', views.product_list, name='product_list'),
-    #path('login/', views.user_login(), name='login'),
-    path('<slug:category_slug>/', views.product_list, 
+    path('<slug:category_slug>/', views.product_list,
          name='product_list_by_category'),
     path('<int:id>/<slug:slug>/', views.product_detail,
          name='product_detail'),

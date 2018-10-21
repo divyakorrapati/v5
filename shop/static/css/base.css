@@ -125,15 +125,31 @@ ul.errorlist {
 #subheader {
     background:#ececec;
     color:#444;
-    padding:15px 100px;
+    padding:1px 100px;
     overflow:auto;
 }
 
+#subheader li{
+     text-align: center;
+     display: inline-block;
+    padding:10px 10px 10px 10px;
+    font-size:10px;
+    overflow:auto;
+
+}
+#subheader li.selected {
+    background:#5993bb;
+    border-radius:4px;
+}
+
+#subheader li.selected a {
+    color:#fff;
+}
 #header .logo {
     font-family: 'Ubuntu', sans-serif;
-    float:left;
+    padding-left: 10px;
     color:#333;
-    font-size:22px;
+    font-size:32px;
     margin-right:10%;
 }
 
