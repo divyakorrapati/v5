@@ -1,8 +1,11 @@
+*.pyc
 myvenv
 db.sqlite3
 /static
 .DS_Store
 .idea/workspace.xml
-*.pyc
 __pycache__
 local_settings.py
+.idea
+shop/static/css/base.css.bak
+
