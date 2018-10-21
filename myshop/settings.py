@@ -49,19 +49,16 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware&',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-]
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
 
 ]
+
 ROOT_URLCONF = 'myshop.urls'
 
 TEMPLATES = [
@@ -94,16 +91,16 @@ EMAIL_USE_TLS = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd77b6tqdoki0qs',
-        'USER': 'lrolaunznmhapw',
-        'PASSWORD': '1815ec748283a499fbd55b067c3a4606a055231a899ea9bbe73014ea81d45032',
-        'HOST': 'ec2-54-221-225-11.compute-1.amazonaws.com',
-        'PORT': '5432',
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': 'd77b6tqdoki0qs',
+        #'USER': 'lrolaunznmhapw',
+        #'PASSWORD': '1815ec748283a499fbd55b067c3a4606a055231a899ea9bbe73014ea81d45032',
+        #'HOST': 'ec2-54-221-225-11.compute-1.amazonaws.com',
+       # 'PORT': '5432',
     }
 }
 
-DEBUG = True
+#DEBUG = True
 
 
 
@@ -152,14 +149,13 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# Update database configuration with $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config()
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
-
-CART_SESSION_ID = 'cart'
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -168,3 +164,8 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+CART_SESSION_ID = 'cart'
