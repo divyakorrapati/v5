@@ -91,12 +91,12 @@ EMAIL_USE_TLS = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.postgresql',
-        #'NAME': 'd77b6tqdoki0qs',
-        #'USER': 'lrolaunznmhapw',
-        #'PASSWORD': '1815ec748283a499fbd55b067c3a4606a055231a899ea9bbe73014ea81d45032',
-        #'HOST': 'ec2-54-221-225-11.compute-1.amazonaws.com',
-       # 'PORT': '5432',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd77b6tqdoki0qs',
+        'USER': 'lrolaunznmhapw',
+        'PASSWORD': '1815ec748283a499fbd55b067c3a4606a055231a899ea9bbe73014ea81d45032',
+        'HOST': 'ec2-54-221-225-11.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
