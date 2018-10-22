@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
-import django_heroku
+#import django_heroku
 import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'myshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,12 +91,12 @@ EMAIL_USE_TLS = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd77b6tqdoki0qs',
-        'USER': 'lrolaunznmhapw',
-        'PASSWORD': '1815ec748283a499fbd55b067c3a4606a055231a899ea9bbe73014ea81d45032',
-        'HOST': 'ec2-54-221-225-11.compute-1.amazonaws.com',
-        'PORT': '5432',
+       # 'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': 'd77b6tqdoki0qs',
+        #'USER': 'lrolaunznmhapw',
+        #'PASSWORD': '1815ec748283a499fbd55b067c3a4606a055231a899ea9bbe73014ea81d45032',
+        #'HOST': 'ec2-54-221-225-11.compute-1.amazonaws.com',
+        #'PORT': '5432',
     }
 }
 
@@ -159,7 +159,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
 try:
     from .local_settings import *
 except ImportError:
@@ -167,5 +167,6 @@ except ImportError:
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CART_SESSION_ID = 'cart'
