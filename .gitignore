@@ -1,16 +1,8 @@
-db.sqlite3
-cart/__pycache__
-shop/__pycache__
-orders/__pycache__
-myshop/__pycache__
-media/__pycache__
-myshop/local_settings.py
-myshop/backup_settings.py
-myvenv
 *.pyc
 *~
 __pycache__
 db.sqlite3
+myvenv
 /static
 .DS_Store
 .idea/workspace.xml

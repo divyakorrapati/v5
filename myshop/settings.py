@@ -79,14 +79,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'myshop.wsgi.application'
-
-
-
-EMAIL_HOST = 'smtp.gmail.com' # mail service smtp
-EMAIL_HOST_USER = 'divyakorrapati90@gmail.com' # email id
-EMAIL_HOST_PASSWORD = 'ksuvarna222' #password
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
