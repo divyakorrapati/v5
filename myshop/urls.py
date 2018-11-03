@@ -8,10 +8,10 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('shop.urls', namespace='shop')),
     path('cart/', include('cart.urls', namespace='cart')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('shop.urls', namespace='shop')),
     #url(r'^login/$', views.login, name='login'),
     #url(r'^logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
     #re_path(r'^accounts/login/$', LoginView.as_view(template_name='regiatration/login.html'), name="login"),
