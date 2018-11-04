@@ -110,7 +110,7 @@ ul.errorlist {
    float:left;
    color:#ff0000;
    clear:both;
-   font-size:13px;
+   font-size:18px;
    margin:0; 
    padding:0;
 }
@@ -133,7 +133,7 @@ ul.errorlist {
      text-align: center;
      display: inline-block;
     padding:10px 10px 10px 10px;
-    font-size:10px;
+    font-size:20px;
     overflow:auto;
 
 }
