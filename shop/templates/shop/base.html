@@ -14,22 +14,22 @@
   <ul id="ul li">
     <li {% if not category %}class="selected"{% endif %}>
         <a href="{% url "shop:product_list" %}">Home</a>
-      </li>
+    </li>
       {% for c in categories %}
         <li {% if category.slug == c.slug %}class="selected"{% endif %}>
           <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
         </li>
       {% endfor %}
-    <ul><div class="cart">
+    <li><div class="cart">
       {% with total_items=cart|length %}
           {% if cart|length > 0 %}
-            Your cart:
+            <img alt="Your cart" width="25" height="25" src="{% static 'img/cart.png' %}"/>
             <a href="{% url "cart:cart_detail" %}">
               {{ total_items }} item{{ total_items|pluralize }},
               ${{ cart.get_total_price }}
             </a>
           {% else %}
-            Your cart is empty.
+            <img alt="Your cart" width="25" height="25" src="{% static 'img/cart.png' %}"/>.
           {% endif %}
           <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
@@ -47,9 +47,9 @@
                     <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     <li><a href="{% url 'shop:register' %}"><i class="glyphicon glyphicon-log-in"></i>SignUp</a></li>
                 {% endif %}
-            </ul>
+          </ul>
         {% endwith %}
-    </div>
+    </div></li></ul>
     </div>
   <div id="content">
     {% block content %}
