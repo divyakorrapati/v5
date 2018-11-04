@@ -40,7 +40,7 @@ class Cart(object):
         """
         return sum(item['quantity'] for item in self.cart.values())
 
-    def add(self, product, quantity=1, update_quantity=False):
+    def add(self, product, quantity=1, size=str, color=str, update_quantity=False):
         """
         Add a product to the cart or update its quantity.
         """
