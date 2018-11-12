@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'mathfilters',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'payment.apps.PaymentConfig',
 ]
 
 
@@ -64,7 +65,7 @@ ROOT_URLCONF = 'myshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -173,3 +174,19 @@ try:
     from .local_settings import *
 except ImportError:
     print('Import Error')
+
+# Braintree settings
+BRAINTREE_MERCHANT_ID = 'm2f4z4nc66t2sjcx'
+BRAINTREE_PUBLIC_KEY = '7kb3cs9tskxvw9y3'
+BRAINTREE_PRIVATE_KEY = '1611f4052d262ac8231a9b4d205f1733'
+
+from braintree import Configuration, Environment
+
+Configuration.configure(
+    Environment.Sandbox,
+    # Environment.Production,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
+
