@@ -40,7 +40,7 @@ class Cart(object):
         """
         return sum(item['quantity'] for item in self.cart.values())
 
-    def add(self, product, quantity=1, size=str, color=str, update_quantity=False):
+    def add(self, product, quantity=1, size=str, color=str, update_quantity=True,update_size=True,update_color=True):
         """
         Add a product to the cart or update its quantity.
         """
@@ -52,6 +52,17 @@ class Cart(object):
             self.cart[product_id]['quantity'] = quantity
         else:
             self.cart[product_id]['quantity'] += quantity
+        self.save()
+
+        if update_size:
+            self.cart[product_id]['size'] = size
+        else:
+            self.cart[product_id]['size'] = size
+        self.save()
+        if update_color:
+            self.cart[product_id]['color'] = color
+        else:
+            self.cart[product_id]['color'] = color
         self.save()
 
     def save(self):

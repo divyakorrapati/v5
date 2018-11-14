@@ -16,6 +16,8 @@ def cart_add(request, product_id):
                  quantity=cd['quantity'],
                  size=cd['size'],
                  color=cd['color'],
+                 update_size=cd['update'],
+                 update_color=cd['update'],
                 update_quantity=cd['update'])
     return redirect('cart:cart_detail')
 
@@ -32,5 +34,6 @@ def cart_detail(request):
     for item in cart:
             item['update_quantity_form'] = CartAddProductForm(
                               initial={'quantity': item['quantity'],
+                              'size': item['size'],'color':item['color'],
                               'update': True})
     return render(request, 'cart/detail.html', {'cart': cart})
