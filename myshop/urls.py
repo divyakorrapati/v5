@@ -12,7 +12,8 @@ urlpatterns = [
     path('orders/', include('orders.urls', namespace='orders')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('payment/', include('payment.urls', namespace='payment')),
-    path('', include('shop.urls', namespace='shop'))
+    path('coupons/', include('coupons.urls', namespace='coupons')),
+    path('', include('shop.urls', namespace='shop')),
     #url(r'^login/$', views.login, name='login'),
     #url(r'^logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
     #re_path(r'^accounts/login/$', LoginView.as_view(template_name='regiatration/login.html'), name="login"),

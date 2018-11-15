@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'mathfilters',
     'django.contrib.humanize',
     'payment.apps.PaymentConfig',
+    'coupons.apps.CouponsConfig',
 ]
 
 
