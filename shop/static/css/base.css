@@ -1,13 +1,13 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
 
 body { 
     margin:0;
     padding:0;
-    font-family:helvetica, sans-serif; 
+    font-family:helvetica, cursive;
 }
 
 h1, h2, h3, h4, h5 , h6 { 
-    font-family: 'Ubuntu', sans-serif; font-weight:normal;
+    font-family: 'Lobster', cursive; font-weight:normal;
 }
 
 a {
